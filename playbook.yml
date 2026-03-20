@@ -19,7 +19,7 @@
 
     - name: Build Docker image
       community.docker.docker_image:
-        name: my_app_image
+        name: my_app_image_priya
         build:
           path: . # Path to the directory containing your Dockerfile
         state: present
@@ -28,7 +28,7 @@
     - name: Run Docker container
       community.docker.docker_container:
         name: my_app_container
-        image: my_app_image:latest
+        image: my_app_image_priya:latest
         state: started
         ports:
           - "80:80" # Map host port 80 to container port 80
