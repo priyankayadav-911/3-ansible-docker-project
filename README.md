@@ -20,12 +20,12 @@
 
 ### 1. **Update System**
 ```bash
-sudo yum update -y
+sudo apt update -y
 ```
 
 ### 2. **Install Docker**
 ```bash
-sudo yum install -y docker
+sudo apt install -y docker.io
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
@@ -33,22 +33,22 @@ sudo usermod -aG docker $USER
 
 ### 3. **Install Ansible**
 ```bash
-sudo yum install ansible -y
+sudo apt install ansible -y
 ```
 
 ### 4. **Install Jenkins**
 ```bash
-sudo yum update -y
-sudo wget -O /etc/yum.repos.d/jenkins.repo  https://pkg.jenkins.io/redhat-stable/jenkins.repo
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-sudo yum upgrade
-sudo yum install java-21-amazon-corretto -y
-sudo yum install jenkins -y
-sudo systemctl enable jenkins
-sudo systemctl start jenkins
-```
+sudo apt update
+sudo apt install fontconfig openjdk-21-jre
+java -version---
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install jenkins
 
----
 
 ## 🔐 Security Group Configuration
 
