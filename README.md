@@ -140,3 +140,24 @@ CMD ["nginx", "-g", "daemon off;"]
 - Monitor EC2 resource usage—`t3.micro` is suitable for testing, not production.
 
 ---
+
+## Copying image to docker hub
+ - docker login (give credentials)
+
+-docker tag my_app_image_priya:latest priyankayadav911/my_app_image_priya:latest (i.e , renaming to suit to docker hub, before this create repo in docker hub my_app_image_priya:latest)
+-docker push priyankayadav911/my_app_image_priya:latest (now can see image in repo)
+
+## ACCESSING image from other server
+ - create instance
+ - connect via ssh
+ - download docker
+        - sudo apt update -y
+        - sudo apt install -y docker.io
+        -  sudo systemctl start docker
+         -sudo systemctl enable docker
+    - docker pull priyankayadav911/my_app_image_priya:latest
+    -  docker run -d -p 80:80 priyankayadav911/my_app_image_priya:latest
+  
+    -  now  browse ec2-instance-id:80 -- page is loaded
+
+
